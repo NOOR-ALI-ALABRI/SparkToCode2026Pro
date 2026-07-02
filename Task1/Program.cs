@@ -45,5 +45,21 @@ class Program
         {
             Console.WriteLine("odd number ");
         }
+        
+        
+        //Task 4 - Voting Eligibility
+
+        Console.WriteLine("Enter your Age:");
+        int age = int.Parse(Console.ReadLine());
+        bool id = true;
+
+        if (age >= 18 && id == true)
+        {
+            Console.WriteLine(" allow to vote");
+        }
+        else
+        {
+            Console.WriteLine("not allow to vote");
+        }
     }
 }
