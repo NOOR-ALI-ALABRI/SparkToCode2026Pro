@@ -60,5 +60,35 @@ class Program
                    Console.WriteLine("Correct!");
            }while (guess != secret);
            Console.WriteLine("Attempts: " + attempts);
+           
+           ///////////////////////////
+           //Task 6 - Safe Division Calculator
+           try
+           {
+               Console.WriteLine("Enter first number:");
+               int num1 = int.Parse(Console.ReadLine());
+
+               Console.WriteLine("Enter second number:");
+               int num2 = int.Parse(Console.ReadLine());
+
+               int result = num1 / num2;
+               Console.WriteLine("Result = " + result);
+           }
+           catch (DivideByZeroException)
+           {
+               Console.WriteLine("Cannot divide by zero");
+           }
+           catch (FormatException)
+           {
+               Console.WriteLine("Please enter valid numbers only");
+           }
+           catch (Exception)
+           {
+               Console.WriteLine("Something went wrong");
+           }
+           
+           
+           
+           
     }
 }
