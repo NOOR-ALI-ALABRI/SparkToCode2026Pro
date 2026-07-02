@@ -339,5 +339,39 @@ class Program
                 Console.WriteLine("Invalid region");
                 break;
         }
+        
+        //////////////////
+        //Task 13 - Triangle Type Classifier
+
+        Console.WriteLine("Enter side 1:");
+        double a = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter side 2:");
+        double b = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter side 3:");
+        double c = double.Parse(Console.ReadLine());
+
+        if (a + b > c && a + c > b && b + c > a)
+        {
+            if (a == b && b == c)
+            {
+                Console.WriteLine("Equilateral");
+            }
+            else if (a == b || a == c || b == c)
+            {
+                Console.WriteLine("Isosceles");
+            }
+            else
+            {
+                Console.WriteLine("Scalene");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Not a valid triangle");
+        }
+
+        
     }
 }
