@@ -19,7 +19,27 @@ class Program
            sum = sum + i;
            Console.WriteLine("Sum = " + sum);
 
-        
+           //Task 3 - Multiplication Table
 
+           Console.WriteLine("Enter a number:");
+           int num = int.Parse(Console.ReadLine());
+           for (int i = 1; i <= 10; i++)
+           
+           /////////////////////////
+           ///Task 4 - Password Retry
+           string Password = "Spark2026";
+           Console.WriteLine("Enter password:");
+           string input = Console.ReadLine();
+           
+           
+           while (input != Password)
+           {
+               Console.WriteLine("Incorrect password, try again");
+               Console.WriteLine("Enter password:");
+               input = Console.ReadLine();
+           }
+
+           Console.WriteLine("Access Granted");
+           
     }
 }
