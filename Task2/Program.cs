@@ -145,6 +145,33 @@ class Program
 
            Console.WriteLine("Sum = " + sum);
            
+           //////////////////////////////////////
+           //Task 9 - Validated Positive Number Input
+           int number = 0;
+           bool valid = false;
+
+           do
+           {
+               try
+               {
+                   Console.WriteLine("Enter a positive whole number:");
+                   number = int.Parse(Console.ReadLine());
+
+                   if (number > 0)
+                   {
+                       valid = true;
+                   }
+                   else
+                   {
+                       Console.WriteLine("Number must be greater than 0");
+                   }
+               }
+               catch (FormatException)
+               {
+                   Console.WriteLine("Invalid input, please enter a number");
+               }
+
+           } while (!valid);
            
            
     }

@@ -64,7 +64,7 @@ class Program
         
         //Task 5 - Grade Letter Lookup
 
-        Console.WriteLine("enter a single character");
+        Console.WriteLine("enter a single character ('A', 'B', 'C', 'D', or 'F')");
         char character = char.Parse(Console.ReadLine());
 
         switch (character)
@@ -102,7 +102,19 @@ class Program
 
         double fahrenheit = (temperature * 9 / 5) + 32;
 
-        Console.WriteLine("the Fahrenheit " + fahrenheit);
+        Console.WriteLine("Fahrenheit " + fahrenheit);
+        if (temperature < 10)
+          {
+              Console.WriteLine("Cold");
+          }
+          else if (temperature <= 30)
+          {
+              Console.WriteLine("Mild");
+          }
+          else
+          {
+              Console.WriteLine("Hot");
+          }
 
         ///////////////////////////////////////
         
