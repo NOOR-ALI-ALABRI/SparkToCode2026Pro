@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparkToCode", "SparkToCode\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{7E0BB6E4-5B8C-46E0-B10A-BBA0B8044FDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2", "Task2\Task2.csproj", "{F62DC517-E00E-43D3-B460-5937152FF133}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{7E0BB6E4-5B8C-46E0-B10A-BBA0B8044FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E0BB6E4-5B8C-46E0-B10A-BBA0B8044FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E0BB6E4-5B8C-46E0-B10A-BBA0B8044FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62DC517-E00E-43D3-B460-5937152FF133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62DC517-E00E-43D3-B460-5937152FF133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62DC517-E00E-43D3-B460-5937152FF133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62DC517-E00E-43D3-B460-5937152FF133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
