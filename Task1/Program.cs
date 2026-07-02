@@ -106,5 +106,26 @@ class Program
 
         ///////////////////////////////////////
         
+        //Task 7 - Movie Ticket
+
+        Console.WriteLine("enter your age ");
+        int age = int.Parse(Console.ReadLine());
+
+        if (age >= 0 && age <= 12)
+        {
+            Console.WriteLine("Child :2.000 OMR");
+        }
+        else if (age >= 13 && age <= 59)
+        {
+            Console.WriteLine("Adult :5.000 OMR");
+        }
+        else if (age >= 60)
+        {
+            Console.WriteLine("Senior :3.000 OMR.");
+        }
+        else
+        {
+            Console.WriteLine("error");
+        }
     }
 }
