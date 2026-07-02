@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-       
+       /*
         //Task 1 - Personal Info Card
 
         string name = "sara";
@@ -425,6 +425,6 @@ class Program
         Console.WriteLine("Discount: " + discount);
         Console.WriteLine("Tax: " + tax);
         Console.WriteLine("Total: " + total);
-
+*/
     }
 }
