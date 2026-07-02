@@ -127,5 +127,37 @@ class Program
         {
             Console.WriteLine("error");
         }
+        
+        
+        
+        
+        //Task 8 - Restaurant Bill with Membership Discount
+
+        Console.WriteLine("Enter total bill amount:");
+        double bill = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Are you a loyalty member? (yes/no):");
+        string input = Console.ReadLine();
+
+        bool loyalty = (input == "yes");
+
+        double discount = 0;
+        double finalAmount = bill;
+
+        if (bill > 20 && loyalty)
+        {
+            discount = bill * 0.15;
+            finalAmount = bill - discount;
+        }
+        else
+        {
+            discount = 0;
+            finalAmount = bill;
+        }
+
+        Console.WriteLine("Original bill: " + bill);
+        Console.WriteLine("Discount: " + discount);
+        Console.WriteLine("Final amount: " + finalAmount);
+
     }
 }
