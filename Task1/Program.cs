@@ -61,5 +61,39 @@ class Program
         {
             Console.WriteLine("not allow to vote");
         }
+        
+        //Task 5 - Grade Letter Lookup
+
+        Console.WriteLine("enter a single character");
+        char character = char.Parse(Console.ReadLine());
+
+        switch (character)
+        {
+            case 'A':
+                Console.WriteLine("Excellent");
+                break;
+
+            case 'B':
+                Console.WriteLine("Very Good");
+                break;
+
+            case 'C':
+                Console.WriteLine("Good");
+                break;
+
+            case 'D':
+                Console.WriteLine("Pass");
+                break;
+
+            case 'F':
+                Console.WriteLine("Fail");
+                break;
+
+            default:
+                Console.WriteLine("please choose a correct character");
+                break;
+        }
+
+        
     }
 }
