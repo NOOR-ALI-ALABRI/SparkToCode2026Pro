@@ -87,8 +87,47 @@ class Program
                Console.WriteLine("Something went wrong");
            }
            
+           //////////////////////
+           //Task 7 - Repeating Menu with Exit Option
+           int choice = 0;
+           
+           while (choice != 3)
+           {
+               Console.WriteLine("\nMenu:");
+               Console.WriteLine("1) Say Hello");
+               Console.WriteLine("2) Show Greeting");
+               Console.WriteLine("3) Exit");
            
            
+           try
+           {
+               Console.WriteLine("Enter your choice:");
+               choice = int.Parse(Console.ReadLine());
+
+               switch (choice)
+               {
+                   case 1:
+                       Console.WriteLine("Hello!");
+                       break;
+
+                   case 2:
+                       Console.WriteLine("Good day!");
+                       break;
+
+                   case 3:
+                       Console.WriteLine("Exiting...");
+                       break;
+
+                   default:
+                       Console.WriteLine("Invalid option");
+                       break; 
+               }
+           }
+           catch (FormatException)
+           {
+               Console.WriteLine("Please enter numbers only");
+           }
+    }
            
     }
 }
