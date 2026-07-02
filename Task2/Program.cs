@@ -40,6 +40,25 @@ class Program
            }
 
            Console.WriteLine("Access Granted");
+           ///////////////////////////////
+           //Task 5 - Number Guessing Game
            
+           int secret = 42;
+           int guess;
+           int attempts;
+           do
+           {
+               Console.WriteLine("Guess the number:");
+               guess = int.Parse(Console.ReadLine());
+               attempts++;
+
+               if (guess > secret)
+                   Console.WriteLine("Too high");
+               else if (guess < secret)
+                   Console.WriteLine("Too low");
+               else
+                   Console.WriteLine("Correct!");
+           }while (guess != secret);
+           Console.WriteLine("Attempts: " + attempts);
     }
 }
