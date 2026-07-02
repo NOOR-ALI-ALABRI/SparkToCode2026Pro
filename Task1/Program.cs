@@ -371,7 +371,60 @@ class Program
         {
             Console.WriteLine("Not a valid triangle");
         }
+         //////////////////
+        //Task 14 - Online Store Checkout
+        Console.WriteLine("enter a product code 1, 2, 3):");
+        int code = int.Parse(Console.ReadLine());
 
-        
+        Console.WriteLine("Enter quantity:");
+        int quantity = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("do they have a discount coupon (yes/no):");
+        string input = Console.ReadLine();
+        bool coupon = (input == "yes");
+
+        double subtotal = 0;
+        double price = 0;
+
+        switch (code)
+        {
+            case 1:
+                price = 8.500;
+                subtotal = price * quantity;
+                break;
+
+            case 2:
+                price = 12.000;
+                subtotal = price * quantity;
+                break;
+
+            case 3:
+                price = 5.000;
+                subtotal = price * quantity;
+                break;
+
+            default:
+                Console.WriteLine("Invalid product code");
+                return;
+        }
+
+        double discount = 0;
+        w
+        if (coupon && subtotal > 20)
+        {
+            discount = subtotal * 0.10;
+        }
+
+        double afterDiscount = subtotal - discount;
+
+        double tax = afterDiscount * 0.05;
+
+        double total = afterDiscount + tax;
+
+        Console.WriteLine("Subtotal: " + subtotal);
+        Console.WriteLine("Discount: " + discount);
+        Console.WriteLine("Tax: " + tax);
+        Console.WriteLine("Total: " + total);
+
     }
 }
