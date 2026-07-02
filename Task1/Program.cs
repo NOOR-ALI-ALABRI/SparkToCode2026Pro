@@ -285,5 +285,59 @@ class Program
         }
 
         //////////////////////
+        ///Task 12 - Shipping Cost Calculator
+
+        Console.WriteLine("Enter a region code (A, B, C):");
+        char code = char.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter package weight (kg):");
+        double weight = double.Parse(Console.ReadLine());
+
+        double baseCost = 0;
+        double charge = 0;
+        double totalcost = 0;
+
+        switch (code)
+        {
+            case 'A':
+                baseCost = 1.000;
+
+                if (weight > 10)
+                    charge = 5.000;
+                else if (weight > 5)
+                    charge = 2.000;
+                else
+                    charge = 0;
+
+                break;
+
+            case 'B':
+                baseCost = 3.000;
+
+                if (weight > 10)
+                    charge = 5.000;
+                else if (weight > 5)
+                    charge = 2.000;
+                else
+                    charge = 0;
+
+                break;
+
+            case 'C':
+                baseCost = 7.000;
+
+                if (weight > 10)
+                    charge = 5.000;
+                else if (weight > 5)
+                    charge = 2.000;
+                else
+                    charge = 0;
+
+                break;
+
+            default:
+                Console.WriteLine("Invalid region");
+                break;
+        }
     }
 }
