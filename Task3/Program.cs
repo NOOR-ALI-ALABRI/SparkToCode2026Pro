@@ -26,7 +26,7 @@ class Program
      
      
        /////////////////////////////////////////
-     */
+     
      
      //Task 3 - Name Formatter
      
@@ -36,7 +36,26 @@ class Program
       Console.WriteLine( "name in upper case:"+ name.ToUpper());
       Console.WriteLine("name in lower case :"+ name.ToLower());
       Console.WriteLine("the Length of your na"+name.Length );
-    
+      */
+        /////////////////////////////////////////
+        
+        //Task 4 - Subscription End Date
+        Console.WriteLine("Enter the number of days for the free trial:");
+        int numberOfDay = int.Parse(Console.ReadLine());
+        
+        
+        DateTime today = DateTime.Today;
+        DateTime endDate = today.AddDays(numberOfDay);
+
+
+        Console.WriteLine(today);
+        Console.WriteLine(endDate);
+
+        Console.WriteLine(endDate.ToString("yyyy-MM-dd"));
+
+
+
+
 
     }
 }
