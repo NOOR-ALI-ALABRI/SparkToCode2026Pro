@@ -53,7 +53,7 @@ class Program
 
         Console.WriteLine(endDate.ToString("yyyy-MM-dd"));
 
-        */
+        
         /////////////////////////////////////////
         
        //Task 5 - Grade Rounding System
@@ -73,13 +73,28 @@ class Program
          Console.WriteLine("Result: Fail");
      }
      
-     
-   
-     
-     
-     
-     
-     
-     
+     /////////////////////////////////////////
+   */
+        //Task 6 - Password Strength Checker
+        Console.WriteLine("Enter password ");
+        string password =(Console.ReadLine());
+        string lowerPassword = password.ToLower();
+        
+        bool islength = password.Length >= 8;
+        bool hasPassword = lowerPassword.Contains("password");
+
+        if ( islength && !hasPassword)
+        {
+            Console.WriteLine("Strong");
+        }
+        else
+        {
+            Console.WriteLine("Weak");
+        }
+        
+        
+        
+
+
     }
 }
