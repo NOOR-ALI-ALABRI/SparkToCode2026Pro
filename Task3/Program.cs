@@ -136,7 +136,7 @@ class Program
         }
         
         Console.WriteLine("Expiry Date: " + expiryDate.ToString("yyyy-MM-dd"));
-        */
+        
         ///////////////////////////////////
         //Task 9 - Round Up / Round Down Explorer
         
@@ -150,6 +150,32 @@ class Program
         Console.WriteLine("Rounded (Nearest): " + rounded);
         Console.WriteLine("Rounded Up: " + roundedUp);
         Console.WriteLine("Rounded Down: " + roundedDown);
+*/
+        //////////////////////////////////
+        //Task 10 - Word Position Finder
+        
+        Console.WriteLine("Enter a full sentence:");
+        string sentence = Console.ReadLine();
 
+        Console.WriteLine("Enter a word to search:");
+        string word = Console.ReadLine();
+        
+        int firstIndex = sentence.IndexOf(word);
+        int lastIndex = sentence.LastIndexOf(word);
+
+        if (firstIndex == -1)
+        {
+            Console.WriteLine("Word not found"); 
+            
+        }
+        else
+        {
+            Console.WriteLine("First occurrence index: " + firstIndex);
+            Console.WriteLine("Last occurrence index: " + lastIndex);
+        } 
+        
+        
+        
+        
     }
 }
