@@ -113,7 +113,7 @@ class Program
         {
             Console.WriteLine("No Match");
         }
-         */
+         
         /////////////////////////
         //Task 8 - Membership Expiry Checker
         Console.WriteLine("Enter membership start date (e.g. 2026-01-10):");
@@ -136,7 +136,20 @@ class Program
         }
         
         Console.WriteLine("Expiry Date: " + expiryDate.ToString("yyyy-MM-dd"));
+        */
+        ///////////////////////////////////
+        //Task 9 - Round Up / Round Down Explorer
         
+        Console.WriteLine("Enter a decimal number:");
+        double number = double.Parse(Console.ReadLine());
+        
+        double rounded = Math.Round(number);
+        double roundedUp = Math.Ceiling(number);
+        double roundedDown = Math.Floor(number);
+        
+        Console.WriteLine("Rounded (Nearest): " + rounded);
+        Console.WriteLine("Rounded Up: " + roundedUp);
+        Console.WriteLine("Rounded Down: " + roundedDown);
 
     }
 }
