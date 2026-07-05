@@ -12,8 +12,9 @@ class Program
      int result = num1 - num2;
       
       Console.WriteLine(Math.Abs(result));
-     */
       
+      
+     /////////////////////////////////////////
      //Task 2 - Power & Root Explorer
      Console.WriteLine("Enter a number ");
      int number = int.Parse(Console.ReadLine());
@@ -24,10 +25,18 @@ class Program
      Console.WriteLine("the sqrt of number is" + sqrt);
      
      
+       /////////////////////////////////////////
+     */
      
+     //Task 3 - Name Formatter
      
-     
-     
-     
+     Console.WriteLine("Enter Your Fill Name:");
+      string name = Console.ReadLine();
+      
+      Console.WriteLine( "name in upper case:"+ name.ToUpper());
+      Console.WriteLine("name in lower case :"+ name.ToLower());
+      Console.WriteLine("the Length of your na"+name.Length );
+    
+
     }
 }
