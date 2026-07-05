@@ -3,36 +3,48 @@
 class Program
 {
     static void Main(string[] args)
-    {
+    {/*
         //Task 1 - Countdown Timer
         Console.WriteLine("enter a starting number:"); 
         int number = int.Parse(Console.ReadLine());
+        
         for(int i=number ; i >= 1 ; i--) 
             Console.WriteLine(i);
         
+        Console.WriteLine("Liftoff!");
+        
+        
+        //////////////////////////////////////////////////////
         //Task 2 - Sum of Numbers 1 to
         
         Console.WriteLine("enter a positive whole number:"); 
         int num = int.Parse(Console.ReadLine());
         int sum = 0;
-       for (int i = 1; i <= num; i++) 
+        for (int i = 1; i <= num; i++) 
            sum = sum + i;
            Console.WriteLine("Sum = " + sum);
-
+           
+           
+          /////////////////////////////////////////////
            //Task 3 - Multiplication Table
 
            Console.WriteLine("Enter a number:");
            int num = int.Parse(Console.ReadLine());
+           
            for (int i = 1; i <= 10; i++)
+               int result =  num * i 
+                   
+           Console.WriteLine(num + " x " + i + " = " + result);
            
            /////////////////////////
+           /// 
            ///Task 4 - Password Retry
-           string Password = "Spark2026";
+           string password = "Spark2026";
            Console.WriteLine("Enter password:");
            string input = Console.ReadLine();
            
            
-           while (input != Password)
+           while (input != password)
            {
                Console.WriteLine("Incorrect password, try again");
                Console.WriteLine("Enter password:");
@@ -40,12 +52,14 @@ class Program
            }
 
            Console.WriteLine("Access Granted");
+           
+           
            ///////////////////////////////
            //Task 5 - Number Guessing Game
            
            int secret = 42;
            int guess;
-           int attempts;
+           int attempts =0;
            do
            {
                Console.WriteLine("Guess the number:");
@@ -173,6 +187,32 @@ class Program
 
            } while (!valid);
            
+           ///////////////////
+           //Task 10 - Simple ATM Simulation
+          
+           int correctPin = 1234;
+           double balance = 100.000;
+           int attempts = 0;
+           while (attempts < 3)
+           {
+               try
+               {
+                   Console.WriteLine("Enter PIN:");
+                   int pin = int.Parse(Console.ReadLine());
+
+               }
+               catch (FormatException)
+               {
+                   Console.WriteLine("Card Blocked");
+               }
+               
+               
+               
+           }
+           
+          
+           
+           */
            
     }
 }
