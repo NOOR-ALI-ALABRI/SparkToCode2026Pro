@@ -74,7 +74,7 @@ class Program
      }
      
      /////////////////////////////////////////
-   */
+  
         //Task 6 - Password Strength Checker
         Console.WriteLine("Enter password ");
         string password =(Console.ReadLine());
@@ -90,6 +90,28 @@ class Program
         else
         {
             Console.WriteLine("Weak");
+        }
+        
+         */
+        
+        //////////////////////////
+        //Task 7 - Clean Name Comparator
+        Console.WriteLine("Enter your name: "); 
+        string name1 = Console.ReadLine();
+
+        Console.WriteLine("Enter your name again: ");
+        string name2 = Console.ReadLine();
+
+        string clean1 = name1.Trim().ToLower();
+        string clean2 = name2.Trim().ToLower();
+
+        if (clean1 == clean2)
+        {
+            Console.WriteLine("Match");
+        }
+        else
+        {
+            Console.WriteLine("No Match");
         }
         
         
