@@ -22,8 +22,14 @@ class Program
     {
         return (celsius * 9 / 5) + 32;
     }
-
-    
+   
+    //Task 4 - Fixed Menu Display Function
+    public static void DisplayMenu()
+    {
+        Console.WriteLine("1) Start");
+        Console.WriteLine("2) Help");
+        Console.WriteLine("3) Exit");
+    }
     
     
     //Main 
@@ -37,6 +43,7 @@ class Program
         
         
         //Task 2 - Square Number Function
+        Console.WriteLine("Enter a number:");
         int num = int.Parse(Console.ReadLine());
         int result = Square(num);
         Console.WriteLine(result);
@@ -48,6 +55,8 @@ class Program
         Console.WriteLine("Temperature in Fahrenheit: " + result2);
         
         
-        
+        //Task 4 - Fixed Menu Display Function
+        DisplayMenu();
+
     }
 }
