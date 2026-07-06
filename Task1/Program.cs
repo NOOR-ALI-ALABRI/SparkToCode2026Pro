@@ -436,7 +436,7 @@ class Program
           Console.WriteLine("Discount: " + discount);
           Console.WriteLine("Tax: " + tax);
           Console.WriteLine("Total: " + total);
-*/
+
        //////////////////////////////////
       // Task 15 - University Admission Decision
       Console.WriteLine("Enter program type (S or A):");
@@ -500,6 +500,6 @@ class Program
       
       
       
-      
+      */
     }
 }
