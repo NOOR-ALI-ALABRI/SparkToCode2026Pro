@@ -50,7 +50,33 @@ class Program
         return 2 * (length + width);
     }
     
-    
+   
+
+    //Task 7 - Grade Letter Function
+
+    public static string GetGradeLetter(int score)
+    {
+        if (score >= 90)
+        {
+            return "A";
+        }
+        else if (score >= 80)
+        {
+            return "B";
+        }
+        else if (score >= 70)
+        {
+            return "C";
+        }
+        else if (score >= 60)
+        {
+            return "D";
+        }
+        else
+        {
+            return "F";
+        }
+    }
     
     
     
@@ -112,5 +138,11 @@ class Program
 
         
         
+        //Task 7 - Grade Letter Function
+        Console.WriteLine("Enter score:");
+        int scoregrad = int.Parse(Console.ReadLine());
+        string result4 = GetGradeLetter(scoregrad);
+        Console.WriteLine("Your result is: " + result4);
+
     }
 }
