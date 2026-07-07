@@ -78,6 +78,14 @@ class Program
         }
     }
     
+    //Task 8 - Countdown Function  
+    public static void Countdown(int num)
+    {
+        for (int i = num; i >= 1; i--)
+        {
+            Console.WriteLine(i);
+        }
+    }
     
     
     //Main 
@@ -143,6 +151,13 @@ class Program
         int scoregrad = int.Parse(Console.ReadLine());
         string result4 = GetGradeLetter(scoregrad);
         Console.WriteLine("Your result is: " + result4);
+        
+        
+      //Task 8 - Countdown Function  
+        Console.WriteLine("Enter number ");
+        int numb = int.Parse(Console.ReadLine());
+        Countdown(numb);
+
 
     }
 }
