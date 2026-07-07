@@ -88,6 +88,24 @@ class Program
     }
     
     
+    //Task 9 - Overloaded Multiply Function
+
+    public static int Multiply(int a, int b)
+    {
+        return a * b;
+    }
+
+    public static double Multiply(double a, double b)
+    {
+        return a * b;
+    }
+
+    public static int Multiply(int a, int b, int c)
+    {
+        return a * b * c;
+    }
+    
+    
     //Main 
     static void Main(string[] args)
     {
@@ -153,10 +171,23 @@ class Program
         Console.WriteLine("Your result is: " + result4);
         
         
-      //Task 8 - Countdown Function  
+        //Task 8 - Countdown Function  
         Console.WriteLine("Enter number ");
         int numb = int.Parse(Console.ReadLine());
         Countdown(numb);
+        
+
+        //Task 9 - Overloaded Multiply Function
+        int resultFunc1 = Multiply(2, 3);
+        Console.WriteLine("Two integers result: " + resultFunc1);
+
+        double resultFunc2 = Multiply(2.5, 3.5);
+        Console.WriteLine("Two doubles result: " + resultFunc2);
+
+        int resultFunc3 = Multiply(2, 3, 4);
+        Console.WriteLine("Three integers result: " + resultFunc3);
+        
+        
 
 
     }
