@@ -106,6 +106,18 @@ class Program
     }
     
     
+    //Task 10 - Overloaded Area Calculator
+    public static double CalculateAreaa(double side)
+    {
+        return side * side;
+    }
+
+    public static double CalculateAreaa(double length, double width)
+    {
+        return length * width;
+    }
+    
+    
     //Main 
     static void Main(string[] args)
     {
@@ -176,6 +188,7 @@ class Program
         int numb = int.Parse(Console.ReadLine());
         Countdown(numb);
         
+        
 
         //Task 9 - Overloaded Multiply Function
         int resultFunc1 = Multiply(2, 3);
@@ -188,7 +201,33 @@ class Program
         Console.WriteLine("Three integers result: " + resultFunc3);
         
         
+        
+        //Task 10 - Overloaded Area Calculator
+        Console.WriteLine("Choose shape: 1 for Square, 2 for Rectangle");
+        int choice = int.Parse(Console.ReadLine());
 
+        if (choice == 1)
+        {
+            Console.WriteLine("Enter side:");
+            double side = double.Parse(Console.ReadLine());
+
+            double squareArea = CalculateAreaa(side);
+
+            Console.WriteLine("Square area: " + squareArea);
+        }
+        
+        else if (choice == 2)
+        {
+            Console.WriteLine("Enter length:");
+            double rectLength = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter width:");
+            double rectWidth = double.Parse(Console.ReadLine());
+
+            double rectangleArea = CalculateAreaa(rectLength, rectWidth);
+
+            Console.WriteLine("Rectangle area: " + rectangleArea);
+        }
 
     }
 }
