@@ -153,6 +153,36 @@ class Program
     Console.WriteLine("3rd place: " + scores[2]);
     
     
+    //Task 8 - Undo Last Action
+    
+    Stack<string> history = new Stack<string>();
+
+    while (true)
+    {
+        Console.Write("Enter action: ");
+        string input = Console.ReadLine();
+
+        if (input == "stop")
+        {
+            break;
+        }
+
+        history.Push(input);
+    }
+    // Undo 
+    Console.WriteLine("Undo actions:");
+
+    Console.WriteLine(history.Pop());
+    Console.WriteLine(history.Pop());
+    
+    
+// Print remaining actions
+    Console.WriteLine("Remaining actions:");
+
+    foreach (string action in history)
+    {
+        Console.WriteLine(action);
+    }
     
     
     
