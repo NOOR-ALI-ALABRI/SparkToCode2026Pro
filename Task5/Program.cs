@@ -16,11 +16,11 @@ class Program
         {
             Console.WriteLine(grade);
         }
-        
-        
-        
+
+
+
         //Task 2 - Dynamic To-Do List
-         
+
         List<string> tasks = new List<string>();
         for (int i = 0; i < 5; i++)
         {
@@ -28,15 +28,15 @@ class Program
             string task = Console.ReadLine();
 
             tasks.Add(task);
-            
-        }  
+
+        }
         Console.WriteLine("To-Do List:");// Print tasks
 
         foreach (string task in tasks)
         {
             Console.WriteLine("- " + task);
         }
-        
+
         */
         //Task 3 - Browsing History Stack
         Stack<string> history = new Stack<string>();
@@ -48,14 +48,15 @@ class Program
         {
             Console.WriteLine(site);
         }
+
         history.Pop();
 
         Console.WriteLine("You are now on: " + history.Peek());
-        
-        
+
+
         //Task 4 - Customer Service Queue
         Queue<string> customers = new Queue<string>(); // Create a queue
-      
+
         Console.Write("Enter customer name: "); //// Put customer in Queue
         customers.Enqueue(Console.ReadLine());
 
@@ -65,34 +66,77 @@ class Program
         Console.Write("Enter customer name: ");
         customers.Enqueue(Console.ReadLine());
 
-        string name =customers.Dequeue();   /// Remove the first customer from the queue 
+        string name = customers.Dequeue(); /// Remove the first customer from the queue 
         Console.WriteLine("Served customer: " + name);
+
+
+
+
+        // Task 5 - Array Grade Range
+        int[] grades = new int[5];
+        for (int i = 0; i < grades.Length; i++)
+        {
+            Console.Write("Enter grade: ");
+            grades[i] = int.Parse(Console.ReadLine());
+        }
+
+        Array.Sort(grades); // Sort the array so lowest is at index 0 and highest at last index
+        double sum = 0; // Calculate sum
+        for (int i = 0; i < grades.Length; i++)
+        {
+            sum += grades[i];
+        }
+
+        // Calculate average
+        double average = sum / grades.Length;
+
+        Console.WriteLine("Lowest grade: " + grades[0]);
+        Console.WriteLine("Highest grade: " + grades[grades.Length - 1]);
+        Console.WriteLine("Average: " + average);
+
+
+
+        //Task 6 - Filtered Shopping List
+        List<string> shoppingList = new List<string>();
         
+        while (true) // Add items
+        {
+            
+            Console.Write("Enter item (type done to finish): ");
+            string item = Console.ReadLine();
+            
+            if (item == "done")
+            {
+                break;
+            }
+
+            shoppingList.Add(item);
+        }
+        Console.WriteLine("Shopping List before removal:");
+
+        foreach (string item in shoppingList)
+        {
+            Console.WriteLine("- " + item);
+        }
+        // Remove item
+        Console.Write("Enter item to remove: ");
+        string removeItem = Console.ReadLine();
+
+        shoppingList.Remove(removeItem);
         
+        Console.WriteLine("Shopping List after removal:");
+
+        foreach (string item in shoppingList)
+        {
+            Console.WriteLine("- " + item);
+        }
         
-        
-       // Task 5 - Array Grade Range
-       int[] grades = new int[5];
-       for (int i = 0; i < grades.Length; i++)
-       {
-           Console.Write("Enter grade: ");
-           grades[i] = int.Parse(Console.ReadLine());
-       }
-       
-       Array.Sort(grades);// Sort the array so lowest is at index 0 and highest at last index
-       double sum = 0; // Calculate sum
-       for (int i = 0; i < grades.Length; i++)
-       {
-           sum += grades[i];
-       }
-        
-       // Calculate average
-       double average = sum / grades.Length;
-       
-       Console.WriteLine("Lowest grade: " + grades[0]);
-       Console.WriteLine("Highest grade: " + grades[grades.Length - 1]);
-       Console.WriteLine("Average: " + average);
-        
-        
-    }
+
+
+
+    
+    
+    
+
+}
 }
