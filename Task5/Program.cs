@@ -71,6 +71,28 @@ class Program
         
         
         
+       // Task 5 - Array Grade Range
+       int[] grades = new int[5];
+       for (int i = 0; i < grades.Length; i++)
+       {
+           Console.Write("Enter grade: ");
+           grades[i] = int.Parse(Console.ReadLine());
+       }
+       
+       Array.Sort(grades);// Sort the array so lowest is at index 0 and highest at last index
+       double sum = 0; // Calculate sum
+       for (int i = 0; i < grades.Length; i++)
+       {
+           sum += grades[i];
+       }
+        
+       // Calculate average
+       double average = sum / grades.Length;
+       
+       Console.WriteLine("Lowest grade: " + grades[0]);
+       Console.WriteLine("Highest grade: " + grades[grades.Length - 1]);
+       Console.WriteLine("Average: " + average);
+        
         
     }
 }
