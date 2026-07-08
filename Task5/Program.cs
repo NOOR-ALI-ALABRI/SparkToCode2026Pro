@@ -53,6 +53,24 @@ class Program
         Console.WriteLine("You are now on: " + history.Peek());
         
         
+        //Task 4 - Customer Service Queue
+        Queue<string> customers = new Queue<string>(); // Create a queue
+      
+        Console.Write("Enter customer name: "); //// Put customer in Queue
+        customers.Enqueue(Console.ReadLine());
+
+        Console.Write("Enter customer name: ");
+        customers.Enqueue(Console.ReadLine());
+
+        Console.Write("Enter customer name: ");
+        customers.Enqueue(Console.ReadLine());
+
+        string name =customers.Dequeue();   /// Remove the first customer from the queue 
+        Console.WriteLine("Served customer: " + name);
+        
+        
+        
+        
         
     }
 }
