@@ -133,10 +133,31 @@ class Program
         
 
 
+    //Task 7 - High Score Podium
+     List<int> scores = new List<int>();
+    for (int i = 0; i < 5; i++)
+    {
+        Console.Write("Enter score: ");
+        scores.Add(int.Parse(Console.ReadLine()));
+    }
 
-    
-    
-    
+    // Sort and reverse
+    scores.Sort();
+    scores.Reverse();
 
+    // Print top 3 scores
+    Console.WriteLine("High Score Podium:");
+
+    Console.WriteLine("1st place: " + scores[0]);
+    Console.WriteLine("2nd place: " + scores[1]);
+    Console.WriteLine("3rd place: " + scores[2]);
+    
+    
+    
+    
+    
+    
+    
+    
 }
 }
