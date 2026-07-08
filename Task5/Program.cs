@@ -16,7 +16,7 @@ class Program
         {
             Console.WriteLine(grade);
         }
-        */
+        
         
         
         //Task 2 - Dynamic To-Do List
@@ -37,13 +37,20 @@ class Program
             Console.WriteLine("- " + task);
         }
         
-        
-        
-        
-        
-        
-        
-        
+        */
+        //Task 3 - Browsing History Stack
+        Stack<string> history = new Stack<string>();
+        history.Push("google.com");
+        history.Push("microsoft.com");
+        history.Push("github.com");
+        Console.WriteLine("Current stack:");
+        foreach (string site in history)
+        {
+            Console.WriteLine(site);
+        }
+        history.Pop();
+
+        Console.WriteLine("You are now on: " + history.Peek());
         
         
         
