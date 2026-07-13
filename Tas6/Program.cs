@@ -182,6 +182,15 @@ public class Program
                 case 5:
                     ViewProductDetails();
                     break;
+                case 6:
+                    RegisterStudent();
+                    break;
+                case 7:
+                    CompareAccountBalances();
+                    break;
+                case 8:
+                    RestockProduct();
+                    break;
             }
 
 
@@ -193,13 +202,8 @@ public class Program
 
         }
 
-
-
-
-
-
-
-    }
+        
+        }
 
 
 
@@ -276,7 +280,7 @@ public class Program
         }
     }
 
-    //EASY (5 Cases)
+    //EASY (5 Cases)//////////////////////////////////////////
     static void ViewAccountDetails()
     {
         BankAccount account = ChooseAccount();
@@ -336,5 +340,64 @@ public class Program
         {
             double value = product.GetInventoryValue();
             Console.WriteLine("Total Inventory Value: " + value);
+        }
+    }
+    
+    //MEDIUM (3 Cases)//////////////////////////////////////
+    static void RegisterStudent()
+    {
+        Student student = ChooseStudent();
+
+        if(student != null)
+        {
+            Console.WriteLine("Enter email:");
+            string email = Console.ReadLine();
+
+            student.Register(email);
+
+            Console.WriteLine("Student registered successfully");
+        }
+    }
+    
+    static void CompareAccountBalances()
+    {
+        if(account1.Balance > account2.Balance)
+        {
+            Console.WriteLine(account1.HolderName + " has more money");
+        }
+        else if(account2.Balance > account1.Balance)
+        {
+            Console.WriteLine(account2.HolderName + " has more money");
+        }
+        else
+        {
+            Console.WriteLine("Both accounts have the same balance");
+        }
+    }
+    static void RestockProduct()
+    {
+        Product product = ChooseProduct();
+
+        if(product != null)
+        {
+            Console.WriteLine("Enter quantity to add:");
+            int quantity = int.Parse(Console.ReadLine());
+
+            product.Restock(quantity);
+
+            Console.WriteLine("Updated Stock: " + product.StockQuantity);
+
+            if(product.StockQuantity < 10)
+            {
+                Console.WriteLine("Stock Level: Low");
+            }
+            else if(product.StockQuantity >= 10 && product.StockQuantity <= 49)
+            {
+                Console.WriteLine("Stock Level: Moderate");
+            }
+            else
+            {
+                Console.WriteLine("Stock Level: Well Stocked");
+            }
         }
     }
