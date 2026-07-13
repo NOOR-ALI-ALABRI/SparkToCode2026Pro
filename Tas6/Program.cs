@@ -214,14 +214,14 @@ public class Program
 
 
 
-                }
+                
 
 
 
         }
         
         }
-
+        }
 
 
 
@@ -360,7 +360,7 @@ public class Program
         }
     }
     
-    //MEDIUM (3 Cases)//////////////////////////////////////
+    //MEDIUM (3 Cases)////////////////////////////////////////
     static void RegisterStudent()
     {
         Student student = ChooseStudent();
@@ -549,6 +549,62 @@ public class Program
                 Console.WriteLine("Sale completed successfully");
                 Console.WriteLine("Total Revenue: " + revenue);
                 Console.WriteLine("Remaining Stock: " + product.StockQuantity);
+            }
+        }
+    }
+    
+    //ADVANCED ////////////////////////////////////////////////
+
+    static void ScholarshipEligibilityCheck()
+    {
+        Student student = ChooseStudent();
+        BankAccount account = ChooseAccount();
+
+        if(student != null && account != null)
+        {
+            bool gradeOK = student.Grade >= 80;
+            bool balanceOK = account.Balance >= 100;
+
+            if(gradeOK && balanceOK)
+            {
+                Console.WriteLine("Eligible");
+            }
+            else
+            {
+                if(gradeOK == false)
+                {
+                    Console.WriteLine("Failed: Student grade is below 80");
+                }
+
+                if(balanceOK == false)
+                {
+                    Console.WriteLine("Failed: Account balance is below 100");
+                }
+            }
+        }
+    }
+    static void FullBalanceTopUp()
+    {
+        BankAccount account = ChooseAccount();
+
+        if(account != null)
+        {
+            double beforeBalance = account.Balance;
+
+            if(account.Balance < 50)
+            {
+                double topUpAmount = 100 - account.Balance;
+
+                account.Deposit(topUpAmount);
+
+                Console.WriteLine("Balance Before: " + beforeBalance);
+                Console.WriteLine("Top-up Amount: " + topUpAmount);
+                Console.WriteLine("Balance After: " + account.Balance);
+            }
+            else
+            {
+                Console.WriteLine("No top-up needed");
+                Console.WriteLine("Current Balance: " + account.Balance);
             }
         }
     }
