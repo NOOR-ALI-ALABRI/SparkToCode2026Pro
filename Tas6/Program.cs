@@ -191,17 +191,34 @@ public class Program
                 case 8:
                     RestockProduct();
                     break;
-            }
+            
+                  case 9:
+                    TransferBetweenAccounts();
+                    break;
+
+                case 10:
+                    UpdateStudentGrade();
+                    break;
+
+                case 11:
+                    StudentReportCard();
+                    break;
+
+                case 12:
+                    AccountHealthStatus();
+                    break;
+
+                case 13:
+                    BulkSale();
+                    break;
 
 
 
-
-
+                }
 
 
 
         }
-
         
         }
 
@@ -398,6 +415,140 @@ public class Program
             else
             {
                 Console.WriteLine("Stock Level: Well Stocked");
+            }
+        }
+    }
+    
+    
+    //HARD (5 Cases) //////////////////////////////////////////
+    static void TransferBetweenAccounts()
+    {
+        Console.WriteLine("Choose source account:");
+        BankAccount sourceAccount = ChooseAccount();
+
+        Console.WriteLine("Choose destination account:");
+        BankAccount destinationAccount = ChooseAccount();
+
+        if(sourceAccount != null && destinationAccount != null)
+        {
+            Console.WriteLine("Enter transfer amount:");
+
+            double amount = double.Parse(Console.ReadLine());
+
+            if(sourceAccount.Balance >= amount)
+            {
+                sourceAccount.Withdraw(amount);
+                destinationAccount.Deposit(amount);
+
+                Console.WriteLine("Transfer completed successfully");
+                Console.WriteLine("Source Balance: " + sourceAccount.Balance);
+                Console.WriteLine("Destination Balance: " + destinationAccount.Balance);
+            }
+            else
+            {
+                Console.WriteLine("Transfer failed: Not enough balance");
+            }
+        }
+    }
+    
+    
+    static void UpdateStudentGrade()
+    {
+        Student student = ChooseStudent();
+
+        if(student != null)
+        {
+            Console.WriteLine("Enter new grade:");
+
+            try
+            {
+                int grade = int.Parse(Console.ReadLine());
+
+                if(grade < 0 || grade > 100)
+                {
+                    Console.WriteLine("Grade must be between 0 and 100.");
+                }
+                else
+                {
+                    student.Grade = grade;
+
+                    Console.WriteLine("Grade updated successfully.");
+                    Console.WriteLine("New Grade: " + student.Grade);
+                }
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+    }
+    static void StudentReportCard()
+    {
+        Student student = ChooseStudent();
+        if(student != null)
+        {
+            Console.WriteLine("Name: " + student.Name);
+            Console.WriteLine("Address: " + student.Address);
+            Console.WriteLine("Grade: " + student.Grade);
+
+            if(student.Grade >= 60)
+            {
+                Console.WriteLine("Status: Pass");
+            }
+            else
+            {
+                Console.WriteLine("Status: Fail");
+            }
+        }
+    }
+    static void AccountHealthStatus()
+    {
+        BankAccount account = ChooseAccount();
+
+        if(account != null)
+        {
+            Console.WriteLine("Account Holder: " + account.HolderName);
+            Console.WriteLine("Balance: " + account.Balance);
+
+            if(account.Balance < 50)
+            {
+                Console.WriteLine("Status: Low Balance");
+            }
+            else if(account.Balance >= 50 && account.Balance <= 1000)
+            {
+                Console.WriteLine("Status: Healthy");
+            }
+            else
+            {
+                Console.WriteLine("Status: Premium");
+            }
+        }
+    }
+    static void BulkSale()
+    {
+        Product product = ChooseProduct();
+
+        if(product != null)
+        {
+            Console.WriteLine("Enter quantity to sell:");
+            int quantity = int.Parse(Console.ReadLine());
+
+            if(product.StockQuantity < quantity)
+            {
+                int needed = quantity - product.StockQuantity;
+
+                Console.WriteLine("Not enough stock.");
+                Console.WriteLine("Additional units needed: " + needed);
+            }
+            else
+            {
+                product.Sell(quantity);
+
+                double revenue = quantity * product.Price;
+
+                Console.WriteLine("Sale completed successfully");
+                Console.WriteLine("Total Revenue: " + revenue);
+                Console.WriteLine("Remaining Stock: " + product.StockQuantity);
             }
         }
     }
