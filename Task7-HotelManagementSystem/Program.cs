@@ -187,14 +187,14 @@ class Program
            Console.WriteLine("Room is already booked.");
            return;
        }
-       // 6. Link guest with room
+       // Link guest with room
        guest.RoomNumber = room.RoomNumber;
 
-       // 7. Change room status to booked
+       //  Change room status to booked
        room.IsAvailable = false;
 
 
-       // 8. Display booking confirmation
+       // Display booking confirmation
        Console.WriteLine("Booking successful!");
        Console.WriteLine("--------------------");
        Console.WriteLine("Guest Name: " + guest.GuestName);
@@ -204,4 +204,29 @@ class Program
        Console.WriteLine("Total Nights: " + guest.TotalNights);
        Console.WriteLine("Total Cost: " + guest.CalculateTotalCost(room.PricePerNight));
    }
+
+
+   static void ViewAllRooms(List<Room> rooms)
+   {
+       if (rooms.Count == 0)
+       {
+           Console.WriteLine("No rooms have been added yet.");
+           return;
+       }
+
+       Console.WriteLine("Total Rooms: " + rooms.Count);
+
+       var roomList = rooms.OrderBy(r => r.RoomNumber).Select(r => r);
+
+
+       foreach (var room in roomList)
+       {
+           Console.WriteLine("--------------------");
+           Console.WriteLine("Room Number: " + room.RoomNumber);
+           Console.WriteLine("Room Type: " + room.RoomType);
+           Console.WriteLine("Price: " + room.PricePerNight);
+           Console.WriteLine("Status: " + (room.IsAvailable ? "Available" : "Booked"));
+       }
+   }
+
    
