@@ -2,7 +2,7 @@
 
 public class Room
 {     // Attributes
-    public int RoomNumber { get; set; }
+    public string RoomNumber { get; set; }
     public string RoomType { get; set; }
     public double PricePerNight { get; set; }
     public bool IsAvailable { get; set; }
@@ -20,7 +20,7 @@ public class Guest
 {    // Attributes
     public string GuestId { get; set; }
     public string GuestName { get; set; }
-    public int RoomNumber { get; set; }
+    public string RoomNumber { get; set; }
     public DateTime CheckInDate { get; set; }
     public int TotalNights { get; set; }
     // Method
@@ -127,9 +127,31 @@ class Program
    }
 
 
+   public static void RegisterNewGuest(List<Guest> guests)
+   {
+       Console.Write("Enter guest name: ");
+       string guestName = Console.ReadLine();
 
+       Console.Write("Enter check-in date: ");
+       string checkInDate = Console.ReadLine();
 
+       Console.Write("Enter total nights: ");
+       int totalNights = int.Parse(Console.ReadLine());
 
+       int number = guests.Count + 1;
+       string guestId = "G00" + number;
 
+       Guest newGuest = new Guest();
 
-}
+       newGuest.GuestId = guestId;
+       newGuest.GuestName = guestName;
+       newGuest.RoomNumber = "Not Assigned";
+       newGuest.CheckInDate = checkInDate;
+       newGuest.TotalNights = totalNights;
+
+       guests.Add(newGuest);
+
+       Console.WriteLine("Guest registered successfully!");
+       newGuest.DisplayGuest();
+   }
+   
