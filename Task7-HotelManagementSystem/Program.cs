@@ -229,4 +229,25 @@ class Program
        }
    }
 
-   
+
+
+   static void ViewAllGuests(List<Guest> guests)
+   {
+       if (guests.Count == 0)
+       {
+           Console.WriteLine("No guests have been registered yet.");
+           return;
+       }
+       Console.WriteLine("Total Guests: " + guests.Count);    
+       var guestList = guests.OrderBy(g => g.GuestName);
+       foreach (var guest in guestList)
+       {
+           Console.WriteLine("--------------------");
+           Console.WriteLine("Guest ID: " + guest.GuestId);
+           Console.WriteLine("Guest Name: " + guest.GuestName);
+           Console.WriteLine("Room Number: " + guest.RoomNumber);
+           Console.WriteLine("Check In Date: " + guest.CheckInDate);
+           Console.WriteLine("Total Nights: " + guest.TotalNights);
+       }
+       
+   }
