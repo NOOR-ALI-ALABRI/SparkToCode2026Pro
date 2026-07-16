@@ -423,6 +423,8 @@ class Program
        
        }
 
+
+   //Case8
    static void UpdateRoomPrice(List<Room> rooms)
    {
        Console.Write("Enter room number: ");
@@ -453,4 +455,33 @@ class Program
        Console.WriteLine("Old Price: " + oldPrice);
        Console.WriteLine("New Price: " + room.PricePerNight);
 
+   }
+
+  //Case 09 
+   static void GuestLookupByName(List<Guest> guests)
+   {
+       Console.Write("Enter guest name: ");
+       string searchName = Console.ReadLine();
+       
+       var result = guests
+           .Where(g => g.GuestName
+               .ToLower()
+               .Contains(searchName.ToLower()));
+       
+       Console.WriteLine("Matches Found: " + result.Count());
+
+      // If no matches
+       if (!result.Any())
+       {
+           Console.WriteLine("No guests matched that search.");
+           return;
+       }
+       foreach (var guest in result)
+       {
+           Console.WriteLine("----------------");
+           Console.WriteLine("Guest ID: " + guest.GuestId);
+           Console.WriteLine("Guest Name: " + guest.GuestName);
+           Console.WriteLine("Room Number: " + guest.RoomNumber);
+       }
+       
    }
