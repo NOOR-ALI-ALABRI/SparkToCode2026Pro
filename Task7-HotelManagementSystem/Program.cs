@@ -251,3 +251,206 @@ class Program
        }
        
    }
+
+
+///////////////////////////////////////////////////////////////
+//MEDIUM | Cases 06 – 10  
+
+   public static void SearchAndFilterRooms(List<Room> rooms)
+   {
+       while (true)
+       {
+           Console.WriteLine("1. Show all available rooms");
+           Console.WriteLine("2. Filter by room type");
+           Console.WriteLine("3. Filter by max price");
+           Console.WriteLine("4. Room price statistics");
+           Console.WriteLine("0. Back");
+
+           Console.Write("Enter choice: ");
+           int choice = int.Parse(Console.ReadLine());
+           
+           if (choice == 0)
+           {
+               return;
+           }
+
+
+           switch (choice)
+           {
+               case 1:
+                   ShowAvailableRooms(rooms);
+                   break;
+
+               case 2:
+                   FilterByRoomType(rooms);
+                   break;
+
+               case 3:
+                   FilterByMaxPrice(rooms);
+                   break;
+
+               case 4:
+                   RoomStatistics(rooms);
+                   break;
+               default:
+                   Console.WriteLine("Invalid choice. Try again.");
+                   break;
+           }
+           
+           }
+   }
+   
+   static void ShowAvailableRooms(List<Room> rooms)
+   {var availableRooms = rooms.Where(r => r.IsAvailable)
+       .OrderBy(r => r.PricePerNight);
+       Console.WriteLine("Available Rooms Count: " + availableRooms.Count());
+       
+       if (!availableRooms.Any())
+       {
+           Console.WriteLine("No rooms found for the selected criteria.");
+           return;
+       }
+
+
+       foreach (var room in availableRooms)
+       {
+           Console.WriteLine("----------------");
+           Console.WriteLine("Room Number: " + room.RoomNumber);
+           Console.WriteLine("Type: " + room.RoomType);
+           Console.WriteLine("Price: " + room.PricePerNight.ToString("0.00"));
+       }
+      
+   } //case1
+
+
+   static void FilterByRoomType(List<Room> rooms) //case2
+   {
+       Console.Write("Enter room type: ");
+       string type = Console.ReadLine();
+       var result = rooms.Where(r => r.RoomType == type);
+       Console.WriteLine("Rooms Found: " + result.Count());
+       if (!result.Any())
+       {
+           Console.WriteLine("No rooms found for the selected criteria.");
+           return;
+       }
+
+
+       foreach (var room in result)
+       {
+           Console.WriteLine(room.RoomNumber + " - " + room.RoomType);
+       }
+
+   }
+
+
+   static void FilterByMaxPrice(List<Room> rooms)//case3
+   {
+       Console.Write("Enter maximum price: ");
+       double price = double.Parse(Console.ReadLine());
+       var result = rooms.Where(r => r.IsAvailable && r.PricePerNight <= price)
+           .OrderBy(r => r.PricePerNight);
+        
+       
+       Console.WriteLine("Rooms Found: " + result.Count());
+       
+       if (!result.Any())
+       {
+           Console.WriteLine("No rooms found for the selected criteria.");
+           return;
+       }
+
+
+       foreach (var room in result)
+       {
+           Console.WriteLine(room.RoomNumber + " - " + room.PricePerNight.ToString("0.00"));
+       }
+       
+   }
+
+
+   static void RoomStatistics(List<Room> rooms)//case4
+   {
+       Console.WriteLine("Total Rooms: " + rooms.Count());
+
+       Console.WriteLine("Available Rooms: " + rooms.Count(r => r.IsAvailable));
+       Console.WriteLine("Average Price: " + rooms.Average(r => r.PricePerNight).ToString("0.00"));
+
+       Console.WriteLine("Cheapest Price: " + rooms.Min(r => r.PricePerNight).ToString("0.00"));
+
+       Console.WriteLine("Highest Price: " + rooms.Max(r => r.PricePerNight).ToString("0.00"));
+   }
+   
+   
+   //Case 07
+   static void GuestBookingStatistics(List<Guest> guests, List<Room> rooms)
+   {   int totalGuests = guests.Count();
+
+       int bookedGuests = guests
+           .Where(g => g.RoomNumber != "Not Assigned")
+           .Count();
+
+       Console.WriteLine("Total Registered Guests: " + totalGuests);
+       Console.WriteLine("Guests With Rooms: " + bookedGuests);
+       
+       // 2. Total rooms and booked rooms
+       int totalRooms = rooms.Count();
+
+       int bookedRooms = rooms
+           .Count(r => !r.IsAvailable);
+
+       Console.WriteLine("Total Rooms: " + totalRooms);
+       Console.WriteLine("Booked Rooms: " + bookedRooms);
+       
+       // 3. Average
+       var activeGuests = guests
+           .Where(g => g.RoomNumber != "Not Assigned");
+
+
+       if (!activeGuests.Any())
+       {
+           Console.WriteLine("No active bookings recorded.");
+       }
+       else
+       {
+           double averageNights = activeGuests
+               .Average(g => g.TotalNights);
+
+           Console.WriteLine("Average Nights: " + averageNights);
+       }
+
+       //Top 3 
+       
+       }
+
+   static void UpdateRoomPrice(List<Room> rooms)
+   {
+       Console.Write("Enter room number: ");
+       string roomNumber = Console.ReadLine()
+           
+       Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+       
+       if (room == null)
+       {
+           Console.WriteLine("Room not found.");
+           return;
+       }
+       //  Ask new price
+       Console.Write("Enter new price per night: ");
+       double newPrice = double.Parse(Console.ReadLine());
+
+
+       if (newPrice <= 0)
+       {
+           Console.WriteLine("Invalid price.");
+           return;
+       }
+       double oldPrice = room.PricePerNight;
+       room.PricePerNight = newPrice;
+
+       Console.WriteLine("Room price updated successfully!");
+       Console.WriteLine("Room Number: " + room.RoomNumber);
+       Console.WriteLine("Old Price: " + oldPrice);
+       Console.WriteLine("New Price: " + room.PricePerNight);
+
+   }
