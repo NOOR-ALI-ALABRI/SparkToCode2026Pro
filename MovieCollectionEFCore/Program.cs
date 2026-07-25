@@ -43,5 +43,24 @@ class Program
 
         context.Movies.Add(movie3);
         context.SaveChanges();
+        
+        
+        ////////////////////////
+        //Update
+        Movie? movieToUpdate = context.Movies
+            .FirstOrDefault(m => m.Title == "House of the Dragon");
+
+        if (movieToUpdate != null)
+        {
+            movieToUpdate.Rating = 9.0;
+
+            context.SaveChanges();
+            Console.WriteLine("Movie updated!");
+        }
+        
+        
+        
+        
+        
     }
 }
