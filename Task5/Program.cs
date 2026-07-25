@@ -2,6 +2,26 @@
 
 class Program
 {
+    
+    static double GetAverage(List<int> gradeList)
+    {
+        int sum = 0;
+
+        foreach (int grade in gradeList)
+        {
+            sum += grade;
+        }
+
+        return (double)sum / gradeList.Count;
+    }
+    
+    
+    
+    static int GetFirstFailing(List<int> gradeList)
+    {
+        return gradeList.Find(x => x < 60);
+    }
+    
     static void Main(string[] args)
     {
         /*
@@ -37,7 +57,7 @@ class Program
             Console.WriteLine("- " + task);
         }
 
-        */
+        
         //Task 3 - Browsing History Stack
         Stack<string> history = new Stack<string>();
         history.Push("google.com");
@@ -131,7 +151,7 @@ class Program
             Console.WriteLine("- " + item);
         }
         
-
+*/
 
     //Task 7 - High Score Podium
      List<int> scores = new List<int>();
@@ -183,6 +203,38 @@ class Program
     {
         Console.WriteLine(action);
     }
+    
+    
+    
+    //Task 9 - Grade Analyzer with Functions
+    List<int> gradeList = new List<int>();
+
+    Console.Write("How many grades do you want to enter? ");
+    int count = int.Parse(Console.ReadLine());
+
+    for (int i = 0; i < count; i++)
+    {
+        Console.Write("Enter grade: ");
+        int grade = int.Parse(Console.ReadLine());
+
+        gradeList.Add(grade);
+    }
+
+    double avg = GetAverage(gradeList);
+    int firstFail = GetFirstFailing(gradeList);
+
+    Console.WriteLine("Average: " + avg);
+
+    if (firstFail == 0)
+    {
+        Console.WriteLine("No failing grades found.");
+    }
+    else
+    {
+        Console.WriteLine("First failing grade: " + firstFail);
+    }
+   
+    
     
     
     

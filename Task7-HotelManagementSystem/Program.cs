@@ -1,5 +1,5 @@
 ﻿namespace Task7_HotelManagementSystem;
-
+/*
 public class Room
 {     // Attributes
     public string RoomNumber { get; set; }
@@ -484,4 +484,4 @@ class Program
            Console.WriteLine("Room Number: " + guest.RoomNumber);
        }
        
-   }
+   }*/
