@@ -58,6 +58,19 @@ class Program
             Console.WriteLine("Movie updated!");
         }
         
+        //////////////////
+        //Delete
+        Movie? movieToDelete = context.Movies
+            .FirstOrDefault(m => m.Title == "Inception");
+
+        if (movieToDelete != null)
+        {
+            context.Movies.Remove(movieToDelete);
+
+            context.SaveChanges();
+            Console.WriteLine("Movie deleted!");
+        }
+        
         
         
         
