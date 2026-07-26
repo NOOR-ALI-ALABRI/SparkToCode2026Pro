@@ -1,31 +1,34 @@
 ﻿namespace Task7_HotelManagementSystem;
-/*
-public class Room
-{     // Attributes
-    public string RoomNumber { get; set; }
-    public string RoomType { get; set; }
-    public double PricePerNight { get; set; }
-    public bool IsAvailable { get; set; }
-    // Method
-    public void DisplayRoom()
-    {
-        Console.WriteLine("Room Number: " + RoomNumber);
-        Console.WriteLine("Room Type: " + RoomType);
-        Console.WriteLine("Price Per Night: " + PricePerNight);
-        Console.WriteLine("Available: " + IsAvailable);
-    }
-}
 
-public class Guest
-{    // Attributes
-    public string GuestId { get; set; }
-    public string GuestName { get; set; }
-    public string RoomNumber { get; set; }
-    public DateTime CheckInDate { get; set; }
-    public int TotalNights { get; set; }
-    // Method
-    public void DisplayGuest()
-    {
+class Program
+{
+    /*
+    public class Room
+    {     // Attributes
+        public string RoomNumber { get; set; }
+        public string RoomType { get; set; }
+        public double PricePerNight { get; set; }
+        public bool IsAvailable { get; set; }
+        // Method
+        public void DisplayRoom()
+        {
+            Console.WriteLine("Room Number: " + RoomNumber);
+            Console.WriteLine("Room Type: " + RoomType);
+            Console.WriteLine("Price Per Night: " + PricePerNight);
+            Console.WriteLine("Available: " + IsAvailable);
+        }
+    }
+
+    public class Guest
+    {    // Attributes
+        public string GuestId { get; set; }
+        public string GuestName { get; set; }
+        public string RoomNumber { get; set; }
+        public DateTime CheckInDate { get; set; }
+        public int TotalNights { get; set; }
+        // Method
+        public void DisplayGuest()
+        {
         
             Console.WriteLine("Guest ID: " + GuestId);
             Console.WriteLine("Guest Name: " + GuestName);
@@ -33,21 +36,17 @@ public class Guest
             Console.WriteLine("Check In Date: " + CheckInDate);
             Console.WriteLine("Total Nights: " + TotalNights);
         
-    }
+        }
 
-    public double CalculateTotalCost(double pricePerNight)
-    {
+        public double CalculateTotalCost(double pricePerNight)
+        {
         
-        return TotalNights * pricePerNight;
-    }
+            return TotalNights * pricePerNight;
+        }
    
-}
-
-
-
-class Program
-{
-    static void Main(string[] args)
+    }
+    
+    public static void Main(string[] args)
     {
        
         
@@ -87,7 +86,7 @@ class Program
     }
 
    //EASY | Cases 01 – 05 
-   static void AddNewRoom(List<Room> rooms)
+   public static void AddNewRoom(List<Room> rooms)
    {
        Console.Write("Enter room number: ");    // 1. Enter room number
        int roomNumber = int.Parse(Console.ReadLine());
@@ -428,7 +427,7 @@ class Program
    static void UpdateRoomPrice(List<Room> rooms)
    {
        Console.Write("Enter room number: ");
-       string roomNumber = Console.ReadLine()
+       string roomNumber = Console.ReadLine();
            
        Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
        
@@ -483,5 +482,5 @@ class Program
            Console.WriteLine("Guest Name: " + guest.GuestName);
            Console.WriteLine("Room Number: " + guest.RoomNumber);
        }
-       
-   }*/
+      */ 
+   }
