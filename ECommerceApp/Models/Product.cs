@@ -11,7 +11,7 @@ public class Product
     public int CategoryId { get; set; }
     
     
-    // One Product belongs to one Category (N:1)
+    // One Product belongs to one Category (N:1) contains
     public Category Category { get; set; }
     
 }
