@@ -2,9 +2,10 @@ namespace ECommerceApp.Models;
 
 public class Review
 {
-    public int ProductId { get; set; }
-    public string ProductName { get; set; }
-    public decimal ProductPrice { get; set; }
+    public int ReviewId { get; set; }
+    public int Rating { get; set; }
+    public string Comment { get; set; }
+
     
     // Foreign Key
     public int OrderId { get; set; }
