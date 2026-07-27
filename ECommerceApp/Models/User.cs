@@ -7,4 +7,7 @@ public class User
     public string Email { get; set; }
     public string Password { get; set; }
 
+    // One User can have many Orders (1:N)
+    public List<Order> Orders { get; set; } 
+    
 }
