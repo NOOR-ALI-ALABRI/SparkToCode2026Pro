@@ -11,7 +11,17 @@ public class AppDbContext : DbContext
     public DbSet<Order> Orders { get; set; }
     public DbSet<Review> Reviews { get; set; }
     public DbSet<OrderProduct> OrderProducts { get; set; }
-
+    
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<OrderProduct>()
+            .HasKey(op => new { op.OrderId, op.ProductId });
+        modelBuilder.Entity<Review>()
+            .HasOne(r => r.Order)
+            .WithOne(o => o.Review)
+            .HasForeignKey<Review>(r => r.OrderId);
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

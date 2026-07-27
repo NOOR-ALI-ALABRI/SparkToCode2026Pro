@@ -10,4 +10,7 @@ public class OrderProduct
     public int ProductId { get; set; } // FK → Product
     
     
+    public Order Order { get; set; }
+    public Product Product { get; set; }
+    
 }

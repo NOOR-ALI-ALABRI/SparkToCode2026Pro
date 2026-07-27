@@ -14,4 +14,6 @@ public class Product
     // One Product belongs to one Category (N:1) contains
     public Category Category { get; set; }
     
+    public List<OrderProduct> OrderProducts { get; set; }
+    
 }
