@@ -9,4 +9,5 @@ public class OrderProduct
     public int OrderId { get; set; }  // FK → Order
     public int ProductId { get; set; } // FK → Product
     
+    
 }
