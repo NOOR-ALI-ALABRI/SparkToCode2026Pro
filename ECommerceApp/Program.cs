@@ -132,7 +132,25 @@ namespace ECommerceApp
 
 
         static void Login()
-        {
+        { 
+            Console.WriteLine("Enter your email:");
+            string email = Console.ReadLine();
+
+            Console.WriteLine("Enter your password:");
+            string password = Console.ReadLine();
+            
+            User user = context.Users
+                .FirstOrDefault(u => u.Email == email && u.Password == password);
+            
+            if (user != null)
+            {
+                loggedInUserId = user.UserId;
+                Console.WriteLine("Login successful!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid email or password.");
+            }
 
         }
 
