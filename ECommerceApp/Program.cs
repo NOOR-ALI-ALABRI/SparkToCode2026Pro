@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using ECommerceApp.Models;
 
 namespace ECommerceApp
 {
@@ -112,7 +113,21 @@ namespace ECommerceApp
 
         static void RegisterUser()
         {
+            User user = new User();
 
+            Console.WriteLine("Enter your username:");
+            user.UserName = Console.ReadLine();
+
+            Console.WriteLine("Enter your email:");
+            user.Email = Console.ReadLine();
+
+            Console.WriteLine("Enter your password:");
+            user.Password = Console.ReadLine();
+
+            context.Users.Add(user);
+            context.SaveChanges();
+
+            Console.WriteLine("User registered successfully!");
         }
 
 
