@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ECommerceApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceApp
 {
@@ -204,8 +205,19 @@ namespace ECommerceApp
 
 
         static void ViewAllProducts()
-        {
-
+        { 
+            var products = context.Products
+                .Include(p => p.Category)
+                .ToList();
+            foreach (var product in products)
+            {
+                Console.WriteLine(
+                    product.ProductName + " - " +
+                    product.ProductPrice + " - " +
+                    product.Category.CategoryName
+                );
+            
+                }
         }
 
 
