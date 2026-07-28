@@ -226,7 +226,27 @@ namespace ECommerceApp
 
         static void ViewMyOrders()
         {
+            if (loggedInUserId == 0)   // Check if a user is logged in
+            {
+                Console.WriteLine("Please login first.");
+                return;
+            }
 
+            var orders = context.Orders
+                .Where(o => o.UserId == loggedInUserId)
+                .ToList();
+            
+            if (orders.Count == 0)
+            {
+                Console.WriteLine("You have no orders.");
+                return;
+            }
+            // Display user's orders
+            foreach (var order in orders)
+            {
+                Console.WriteLine("Order ID: " + order.OrderId);
+                Console.WriteLine("--------------------");
+            }
         }
 
 
