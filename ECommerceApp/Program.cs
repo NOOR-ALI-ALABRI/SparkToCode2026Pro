@@ -174,7 +174,32 @@ namespace ECommerceApp
 
         static void AddProduct()
         {
+            Product product = new Product();
 
+            Console.WriteLine("Enter product name:");
+            product.ProductName = Console.ReadLine();
+
+            Console.WriteLine("Enter product price:");
+            product.ProductPrice = decimal.Parse(Console.ReadLine());
+          
+            // Display categories
+            var categories = context.Categories.ToList();
+
+            foreach (var category in categories)
+            {
+                Console.WriteLine(category.CategoryId + " - " + category.CategoryName);            }
+
+
+            Console.WriteLine("Choose category id:");
+            int categoryId = int.Parse(Console.ReadLine());
+            
+            product.CategoryId = categoryId;
+
+
+            context.Products.Add(product);
+            context.SaveChanges();
+            Console.WriteLine("Product added successfully!");
+            
         }
 
 
