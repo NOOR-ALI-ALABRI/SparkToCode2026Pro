@@ -157,7 +157,18 @@ namespace ECommerceApp
 
         static void AddCategory()
         {
+            static void AddCategory()
+            {
+                Category category = new Category();
 
+                Console.WriteLine("Enter category name:");
+                category.CategoryName = Console.ReadLine();
+
+                context.Categories.Add(category);
+                context.SaveChanges();
+
+                Console.WriteLine("Category added successfully!");
+            }
         }
 
 
