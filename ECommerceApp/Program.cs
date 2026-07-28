@@ -250,7 +250,9 @@ namespace ECommerceApp
 
         static void Logout()
         {
+            loggedInUserId = 0;
 
+            Console.WriteLine("Logged out successfully.");
         }
 
     }
