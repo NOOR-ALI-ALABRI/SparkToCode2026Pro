@@ -220,7 +220,59 @@ namespace ECommerceApp
 
         static void PlaceOrder()
         {
+            static void PlaceOrder()
+            {
+                if (loggedInUserId == 0)
+                {
+                    Console.WriteLine("Please login first.");
+                    return;
+                }
 
+                // Create new order
+                Order order = new Order();
+                order.UserId = loggedInUserId;
+
+                context.Orders.Add(order);
+                context.SaveChanges();
+
+                // Display products
+                var products = context.Products.ToList();
+
+                foreach (var product in products)
+                {
+                    Console.WriteLine(product.ProductId + " - " + product.ProductName + " - " + product.ProductPrice);
+                }
+
+                bool addMore = true;
+
+                while (addMore)
+                {
+                    Console.WriteLine("Enter Product ID:");
+                    int productId = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Enter Quantity:");
+                    int quantity = int.Parse(Console.ReadLine());
+
+                    OrderProduct orderProduct = new OrderProduct();
+
+                    orderProduct.OrderId = order.OrderId;
+                    orderProduct.ProductId = productId;
+                    orderProduct.Quantity = quantity;
+
+                    context.OrderProducts.Add(orderProduct);
+                    context.SaveChanges();
+
+                    Console.WriteLine("Add another product? (y/n)");
+                    string answer = Console.ReadLine();
+
+                    if (answer.ToLower() != "y")
+                    {
+                        addMore = false;
+                    }
+                }
+
+                Console.WriteLine("Order placed successfully!");
+            }
         }
 
 
@@ -252,6 +304,21 @@ namespace ECommerceApp
 
         static void ViewOrderDetails()
         {
+            Console.WriteLine("Enter order id:");
+            int orderId = int.Parse(Console.ReadLine());
+            
+            var order = context.Orders
+                .Include(o => o.OrderProducts)
+                .ThenInclude(op => op.Product)
+                .Include(o => o.Review)
+                .FirstOrDefault(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                Console.WriteLine("Order not found.");
+                return;
+            }
+
 
         }
 
