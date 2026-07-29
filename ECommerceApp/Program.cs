@@ -385,7 +385,43 @@ namespace ECommerceApp
 
         static void ViewReviewsForProduct()
         {
+            static void ViewReviewsForProduct()
+            {
+                Console.WriteLine("Enter Product ID:");
+                int productId = int.Parse(Console.ReadLine());
 
+
+                var product = context.Products
+                    .Include(p => p.OrderProducts)
+                    .ThenInclude(op => op.Order)
+                    .ThenInclude(o => o.Review)
+                    .FirstOrDefault(p => p.ProductId == productId);
+
+
+                if (product == null)
+                {
+                    Console.WriteLine("Product not found.");
+                    return;
+                }
+
+
+                Console.WriteLine("Reviews for: " + product.ProductName);
+
+
+                foreach (var orderProduct in product.OrderProducts)
+                {
+                    var review = orderProduct.Order.Review;
+
+                    if (review != null)
+                    {
+                        Console.WriteLine("Review: " + review.Comment);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No review for this order.");
+                    }
+                }
+            }
         }
 
 
