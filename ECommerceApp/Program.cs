@@ -325,7 +325,61 @@ namespace ECommerceApp
 
         static void AddReview()
         {
+            static void AddReview()
+            {
+                if (loggedInUserId == 0)
+                {
+                    Console.WriteLine("Please login first.");
+                    return;
+                }
 
+
+                Console.WriteLine("Enter Order ID:");
+                int orderId = int.Parse(Console.ReadLine());
+
+
+                var order = context.Orders
+                    .Include(o => o.Review)
+                    .FirstOrDefault(o => o.OrderId == orderId);
+
+
+                if (order == null)
+                {
+                    Console.WriteLine("Order not found.");
+                    return;
+                }
+
+
+                if (order.UserId != loggedInUserId)
+                {
+                    Console.WriteLine("You cannot review this order.");
+                    return;
+                }
+
+
+                if (order.Review != null)
+                {
+                    Console.WriteLine("This order already has a review.");
+                    return;
+                }
+
+
+                Console.WriteLine("Enter your review:");
+                string comment = Console.ReadLine();
+
+
+                Review review = new Review();
+
+                review.Comment = comment;
+                review.OrderId = orderId;
+
+
+                context.Reviews.Add(review);
+                context.SaveChanges();
+
+
+                Console.WriteLine("Review added successfully.");
+            }
         }
 
 
