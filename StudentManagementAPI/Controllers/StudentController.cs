@@ -22,6 +22,23 @@ public class StudentController : ControllerBase
     }
     
     
+    
+    //  DELETE request to remove a student
+    public void RemoveStudent(int id)
+    {
+        Student s = context.Students.FirstOrDefault(s => s.StudentId == id);
+
+        if (s == null)
+        {
+            Console.WriteLine("Student not found.");
+        }
+        else
+        {
+            context.Students.Remove(s);
+            context.SaveChanges();
+            Console.WriteLine("Student deleted successfully.");
+        }
+    }
 
 
     
