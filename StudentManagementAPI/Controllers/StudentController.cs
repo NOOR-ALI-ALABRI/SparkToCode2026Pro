@@ -13,6 +13,9 @@ public class StudentController : ControllerBase
         context = _context;
     }
     
+    
+    
+    //  Add 
     [HttpPost]
     public IActionResult AddStudent(Student s)
     {
@@ -24,6 +27,7 @@ public class StudentController : ControllerBase
     
     
     //  DELETE request to remove a student
+    [HttpDelete("{id}")]
     public void RemoveStudent(int id)
     {
         Student s = context.Students.FirstOrDefault(s => s.StudentId == id);
@@ -39,8 +43,16 @@ public class StudentController : ControllerBase
             Console.WriteLine("Student deleted successfully.");
         }
     }
+    
+    
+    // Get student by ID
+    public Student GetStudent(int id)
+    {
+        Student s = context.Students.FirstOrDefault(s => s.StudentId == id);
 
-
+        return s;
+    }
+ 
     
     
     
