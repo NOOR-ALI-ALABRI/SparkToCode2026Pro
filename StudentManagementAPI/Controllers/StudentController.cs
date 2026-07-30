@@ -1,6 +1,19 @@
 namespace WebApplication1.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
-public class StudentController
+[ApiController]
+[Route ("")]
+public class StudentController : ControllerBase
 {
+    //to access the database
+    private UniversityContext _context;
+    public StudentController(UniversityContext context)
+    {
+        _context = context;
+    }
+
+
+    
+    
     
 }
