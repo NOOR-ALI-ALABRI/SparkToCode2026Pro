@@ -53,6 +53,13 @@ public class StudentController : ControllerBase
         return s;
     }
  
+    // Get all students
+    public List<Student> GetAllStudents()
+    {
+        List<Student> students = context.Students.ToList();
+
+        return students;
+    }
     
     
     
