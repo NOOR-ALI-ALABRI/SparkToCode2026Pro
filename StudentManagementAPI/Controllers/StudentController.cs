@@ -64,5 +64,29 @@ public class StudentController : ControllerBase
     }
     
     
+    // Update student information
+    [HttpPut("{id}")]
+    public IActionResult UpdateStudent(int id, Student updatedStudent)
+    {
+        Student s = context.Students.FirstOrDefault(s => s.StudentId == id);
+
+        if (s == null)
+        {
+            return NotFound("Student not found.");
+        }
+
+        s.StudentName = updatedStudent.StudentName;
+        s.Age = updatedStudent.Age;
+        s.Email = updatedStudent.Email;
+        s.Phone = updatedStudent.Phone;
+        s.DepartmentId = updatedStudent.DepartmentId;
+
+        context.SaveChanges();
+
+        return Ok(s);
+    }
+    
+    
+    
     
 }
