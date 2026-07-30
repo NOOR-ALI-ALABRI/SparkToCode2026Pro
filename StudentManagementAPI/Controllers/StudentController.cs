@@ -1,6 +1,7 @@
 namespace WebApplication1.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using System.Linq;
 
 [ApiController]
 [Route ("")]
@@ -25,27 +26,27 @@ public class StudentController : ControllerBase
     }
     
     
-    
     //  DELETE request to remove a student
     [HttpDelete("{id}")]
-    public void RemoveStudent(int id)
+    public IActionResult RemoveStudent(int id)
     {
         Student s = context.Students.FirstOrDefault(s => s.StudentId == id);
 
         if (s == null)
         {
-            Console.WriteLine("Student not found.");
+            return NotFound("Student not found.");
         }
         else
         {
             context.Students.Remove(s);
             context.SaveChanges();
-            Console.WriteLine("Student deleted successfully.");
+            return Ok("Student deleted successfully.");
         }
     }
     
     
     // Get student by ID
+    [HttpGet("{id}")]
     public Student GetStudent(int id)
     {
         Student s = context.Students.FirstOrDefault(s => s.StudentId == id);
@@ -54,6 +55,7 @@ public class StudentController : ControllerBase
     }
  
     // Get all students
+    [HttpGet]
     public List<Student> GetAllStudents()
     {
         List<Student> students = context.Students.ToList();
